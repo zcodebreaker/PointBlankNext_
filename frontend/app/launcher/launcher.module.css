@@ -1,0 +1,292 @@
+:global(body:has(.launcherPage)) {
+  margin: 0;
+  background: #07090d;
+  overflow: auto;
+}
+
+.launcherPage,
+.launcherPage * {
+  box-sizing: border-box;
+}
+
+.launcherPage {
+  display: flex;
+  min-width: 787px;
+  min-height: 100svh;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: var(--font-roboto), Arial, sans-serif;
+  background: #07090d;
+}
+
+.launcherPage ul,
+.launcherPage p {
+  margin: 0;
+  padding: 0;
+}
+
+.launcherPage li {
+  list-style: none;
+}
+
+.launcherPage a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.launcher {
+  position: relative;
+  width: 787px;
+  height: 416px;
+  overflow: hidden;
+  background-color: #0f090b;
+  background-image: url("./upload/image/20260930/162747053.png"), url("./images/common/launcher/bg_image.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.webArea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  height: 80px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 25px 18px 0;
+}
+
+.socialList,
+.groupButtons {
+  display: flex;
+  height: 35px;
+  overflow: hidden;
+}
+
+.socialList li + li,
+.groupButtons li + li {
+  margin-left: 1px;
+}
+
+.socialLink,
+.groupLink {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.discord {
+  background-image: url("./images/common/launcher/sns_discord.jpg");
+}
+
+.discord:hover,
+.discord:focus-visible {
+  background-image: url("./images/common/launcher/sns_discord_ov.jpg");
+}
+
+.facebook {
+  background-image: url("./images/common/launcher/sns_facebook.jpg");
+}
+
+.facebook:hover,
+.facebook:focus-visible {
+  background-image: url("./images/common/launcher/sns_facebook_ov.jpg");
+}
+
+.instagram {
+  background-image: url("./images/common/launcher/sns_instagram.jpg");
+}
+
+.instagram:hover,
+.instagram:focus-visible {
+  background-image: url("./images/common/launcher/sns_instagram_ov.jpg");
+}
+
+.youtube {
+  background-image: url("./images/common/launcher/sns_youtube.jpg");
+}
+
+.youtube:hover,
+.youtube:focus-visible {
+  background-image: url("./images/common/launcher/sns_youtube_ov.jpg");
+}
+
+.groupButtons li {
+  background: linear-gradient(to bottom, #2a8ef5, #2a5fd5);
+  transition: background 0.2s ease-in-out;
+}
+
+.groupButtons li:hover,
+.groupButtons li:focus-within {
+  background: linear-gradient(to bottom, #2aceff, #2a78ff);
+}
+
+.home {
+  background-image: url("./images/common/launcher/icon_home.png");
+}
+
+.user {
+  background-image: url("./images/common/launcher/icon_user.png");
+}
+
+.cash {
+  background-image: url("./images/common/launcher/icon_cash02.png");
+}
+
+.banner {
+  display: grid;
+  width: 750px;
+  height: 239px;
+  grid-template-columns: 456px 294px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: rgba(5, 12, 20, 0.92);
+}
+
+.hero {
+  position: relative;
+  width: 456px;
+  height: 239px;
+  overflow: hidden;
+  background: #06090d;
+}
+
+.heroCard {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.notice {
+  width: 294px;
+  height: 239px;
+  overflow: hidden;
+  background: rgba(0, 8, 16, 0.78);
+}
+
+.noticeList {
+  width: 255px;
+  height: 132px;
+  margin: 17px 19px 0 !important;
+  overflow: hidden;
+}
+
+.noticeItem {
+  display: grid;
+  min-height: 23px;
+  grid-template-columns: minmax(0, 1fr) 75px;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.noticeTitle,
+.noticeTitle a {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.noticeTitle a {
+  display: block;
+}
+
+.noticeTitle a:hover,
+.noticeTitle a:focus-visible {
+  color: #70c3ff;
+}
+
+.tag {
+  display: inline-block;
+  width: 60px;
+  height: 14px;
+  margin-right: 5px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.tagEvent {
+  background: #ff7510;
+}
+
+.tagPromo {
+  background: #ab00a9;
+}
+
+.tagPatch {
+  background: #00bb3e;
+}
+
+.tagEsports {
+  background: #236cff;
+}
+
+.tagInfo {
+  background: #008eaa;
+}
+
+.noticeDate {
+  overflow: hidden;
+  color: #5bb4ff;
+  font-size: 11px;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emptyNews {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  color: #7f9db8;
+  font-size: 12px;
+}
+
+.storeBanner {
+  display: block;
+  width: 254px;
+  height: 75px;
+  margin: 13px 20px 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.storeBanner img {
+  display: block;
+  width: 254px;
+  height: 75px;
+}
+
+.socialLink:focus-visible,
+.groupLink:focus-visible,
+.heroCard:focus-visible,
+.storeBanner:focus-visible {
+  outline: 2px solid #54bdff;
+  outline-offset: 2px;
+}

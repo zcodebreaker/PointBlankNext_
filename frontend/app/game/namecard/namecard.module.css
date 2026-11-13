@@ -1,0 +1,637 @@
+.root {
+  position: relative;
+  background: #000;
+  color: #fff;
+  font-family: var(--font-chakra-petch), "Chakra Petch", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+:global(.pb_sub) > .root {
+  padding-bottom: 0;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0;
+  background: #000;
+}
+
+.section {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24rem 0;
+}
+
+.s1 {
+  overflow: hidden;
+  background-image: url("/images/common/namecard/back01_1.jpg");
+}
+
+.s1::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background: url("/images/common/namecard/back_man_1.png") center top no-repeat;
+}
+
+.s1 .inner {
+  padding-top: 48rem;
+  padding-bottom: 18rem;
+}
+
+.s2 { background-image: url("/images/common/namecard/back02.jpg"); }
+.s3 { background-image: url("/images/common/namecard/back03.jpg"); }
+.s4 { background-image: url("/images/common/namecard/back04_1.jpg"); }
+.s5 { background-image: url("/images/common/namecard/back05.jpg"); }
+
+.titleWrap {
+  position: relative;
+  z-index: 3;
+  padding-bottom: 3rem;
+  color: #fff;
+  font-size: 9.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.titleWrap::before,
+.titleWrap::after {
+  position: absolute;
+  top: 10px;
+  display: block;
+  content: "";
+  background-repeat: no-repeat;
+}
+
+.titleWrap::before {
+  left: 15px;
+  width: 34px;
+  height: 82px;
+  background-image: url("/images/common/namecard/bg_title_left.png");
+}
+
+.titleWrap::after {
+  right: 15px;
+  width: 56px;
+  height: 93px;
+  background-image: url("/images/common/namecard/bg_title_right.png");
+}
+
+.titleWrap h1 {
+  display: inline;
+  padding: 0 3rem;
+  border-top: 2px solid #66ceff;
+  background: rgba(0, 0, 0, 0.5) url("/images/common/namecard/bg_title_line.png") bottom repeat-x;
+  font: inherit;
+  line-height: normal;
+  text-shadow: 0 -2px #66ceff, 0 3px #fff002, 0 5px #3c44d0;
+  animation: titleCursor 0.3s infinite;
+}
+
+.namePanel {
+  position: relative;
+  z-index: 3;
+  padding: 6rem 0;
+  background: rgba(0, 0, 0, 0.45);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.namePanel .inner {
+  padding: 0;
+}
+
+.nameInfo {
+  display: inline-block;
+  width: 100%;
+}
+
+.nameInfoPicture {
+  position: relative;
+  display: flex;
+  width: 19.2rem;
+  height: 12.2rem;
+  margin: 0 auto 70px;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/common/namecard/bg_chage_name.png") top center no-repeat;
+}
+
+.nameInfoLabel {
+  position: absolute;
+  bottom: -50px;
+  width: max-content;
+  color: #ffe92c;
+  font-family: var(--font-roboto), Roboto, sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.01rem;
+  text-align: center;
+}
+
+.nameInfoLabel::after {
+  position: absolute;
+  right: 15px;
+  bottom: -9px;
+  width: 18px;
+  height: 10px;
+  content: "";
+  background: url("/images/common/namecard/namecard_arr.png") no-repeat;
+}
+
+.nameInfo > p {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+  text-shadow: 0 -1px #66ceff, 0 1px #f00, 0 1px #3c44d0;
+  text-transform: uppercase;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 192px;
+  height: 62px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/common/namecard/step_back_2.png") center top no-repeat;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.contentBox {
+  text-align: center;
+}
+
+.contentBox h2 {
+  margin: 4rem auto;
+  color: #fff;
+  font-size: 4.5rem;
+  font-weight: 600;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.contentBox h2 span {
+  color: #ffe92c;
+}
+
+.nicknameInput {
+  position: relative;
+  max-width: 616px;
+  margin: 0 auto;
+}
+
+.nicknameInput::before,
+.nicknameInput::after {
+  position: absolute;
+  z-index: 1;
+  top: -0.8rem;
+  bottom: -0.8rem;
+  display: block;
+  width: 1.4rem;
+  content: "";
+  background-repeat: no-repeat;
+}
+
+.nicknameInput::before {
+  left: -0.8rem;
+  background-image: url("/images/common/namecard/bg_input_left.png");
+}
+
+.nicknameInput::after {
+  right: -0.8rem;
+  background-image: url("/images/common/namecard/bg_input_right.png");
+}
+
+.nicknameInput input {
+  width: 100%;
+  height: 8rem;
+  padding: 0 2.4rem;
+  border: 1px solid #52f1ff;
+  outline: none;
+  background: #000;
+  color: #ffe92c;
+  font: 600 2.4rem var(--font-chakra-petch), "Chakra Petch", sans-serif;
+  text-align: center;
+}
+
+.nicknameInput input::placeholder {
+  color: #ffe92c;
+  opacity: 1;
+}
+
+.colorButton {
+  position: relative;
+  display: flex;
+  width: 9.6rem;
+  height: 9.6rem;
+  margin: 0 auto;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent url("/images/common/namecard/bg_select_color.png") center no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font: 600 2rem var(--font-chakra-petch), "Chakra Petch", sans-serif;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.outlineColorButton {
+  text-shadow: -2px -2px 0 #f00, 0 -2px 0 #f00, 2px -2px 0 #f00,
+    2px 0 0 #f00, 2px 2px 0 #f00, 0 2px 0 #f00,
+    -2px 2px 0 #f00, -2px 0 0 #f00;
+}
+
+.colorButton:focus-visible,
+.cardList button:focus-visible,
+.previewOpen:focus-visible,
+.previewClose:focus-visible,
+.facebook:focus-visible,
+.paletteGrid button:focus-visible {
+  outline: 2px solid #ffe92c;
+  outline-offset: 3px;
+}
+
+.cardFrame {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  background: url("/images/common/namecard/bg_name_wrap_lt.png") left top no-repeat,
+    url("/images/common/namecard/bg_name_wrap_rt.png") right top no-repeat,
+    url("/images/common/namecard/bg_name_wrap_lb.png") left bottom no-repeat,
+    url("/images/common/namecard/bg_name_wrap_rb.png") right bottom no-repeat;
+}
+
+.cardScroller {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding: 4.5rem;
+  border: 1px solid #52f1ff;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.cardList {
+  display: flex;
+  margin: 0 0 0 -4rem;
+  padding: 0;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.cardList > li {
+  width: calc(100% / 3);
+  margin-bottom: 3rem;
+  padding-left: 4rem;
+}
+
+.cardList button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cardTitle {
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  font: 1.4rem var(--font-roboto), Roboto, sans-serif;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.cardTitle strong,
+.cardTitle em {
+  display: block;
+  overflow: hidden;
+  font-style: normal;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardTitle em {
+  color: #f00;
+}
+
+.cardImage {
+  position: relative;
+  display: block;
+  height: 4rem;
+  overflow: hidden;
+  text-align: left;
+}
+
+.cardImage img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.selected .cardTitle,
+.selected .cardTitle em {
+  color: #ffe92c;
+  font-weight: 700;
+}
+
+.selected .cardImage::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  border: 3px solid #ffe92c;
+}
+
+.preview {
+  position: fixed;
+  z-index: 4;
+  right: 7.2rem;
+  bottom: 0;
+  left: 0;
+}
+
+.previewOpen,
+.previewClose {
+  display: flex;
+  width: 30rem;
+  height: 4.8rem;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  cursor: pointer;
+  font: 600 1.6rem var(--font-chakra-petch), "Chakra Petch", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.previewOpen { background: url("/images/common/namecard/btn_prev_open.png") top center no-repeat; }
+.previewOpen:hover { background-image: url("/images/common/namecard/btn_prev_open_ov.png"); }
+.previewClose { background: url("/images/common/namecard/btn_prev_closed.png") center no-repeat; }
+.previewClose:hover { background-image: url("/images/common/namecard/btn_prev_closed_ov.png"); }
+
+.previewArea {
+  position: relative;
+  display: none;
+}
+
+.previewArea.visible {
+  display: block;
+}
+
+.previewInner {
+  position: relative;
+  padding: 2.5rem 0;
+  background: linear-gradient(to top, #6c30a2, #99007f);
+}
+
+.previewBox {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 45rem;
+  height: 6.3rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: url("/images/common/namecard/bg_namecard_prev.png") center/cover repeat;
+  color: #ffe92c;
+  font-size: 1.8rem;
+}
+
+.previewBox::before,
+.previewBox::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  display: block;
+  width: 1.3rem;
+  content: "";
+  background-repeat: no-repeat;
+}
+
+.previewBox::before {
+  left: 0;
+  background-image: url("/images/common/namecard/bg_namecard_prev_left.png");
+}
+
+.previewBox::after {
+  right: 0;
+  background-image: url("/images/common/namecard/bg_namecard_prev_right.png");
+}
+
+.previewInner > p {
+  margin-top: 1rem;
+  color: #fff;
+  font: 1.3rem var(--font-roboto), Roboto, sans-serif;
+  text-align: center;
+}
+
+.facebook {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  width: 105px;
+  height: 45px;
+  border: 0;
+  border-radius: 5px;
+  background: url("/images/br/namecard/face_off.png") center/cover no-repeat;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.facebook:hover {
+  background-image: url("/images/br/namecard/face_on.png");
+}
+
+.palette {
+  position: absolute;
+  z-index: 60;
+  left: 50%;
+  width: 78rem;
+  padding: 2rem 5rem 5rem;
+  background: #0f0f0f;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.paletteTitle {
+  margin: 1.5rem 0 2.5rem;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.paletteGrid {
+  display: flex;
+  margin: 0 0 0 -10px;
+  padding: 0;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.paletteGrid li {
+  width: calc(100% / 23);
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.paletteGrid button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.paletteGrid .checked::before {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 23px;
+  height: 16px;
+  content: "";
+  background: url("/images/common/namecard/check.png") center/cover no-repeat;
+}
+
+.particles,
+.particles > span {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  pointer-events: none;
+}
+
+.particles {
+  inset: 0;
+}
+
+.particles > span {
+  opacity: 1;
+}
+
+.hexa1 { top: 10%; left: 0; width: 117px; height: 71px; background: url("/images/common/namecard/obj01_1.png") no-repeat; }
+.hexa2 { top: 0; left: 5%; width: 436px; height: 201px; background: url("/images/common/namecard/obj02_1.png") no-repeat; }
+.hexa3 { top: 20%; left: 36%; width: 52px; height: 50px; background: url("/images/common/namecard/obj03_1.png") no-repeat; }
+.hexa4 { top: 25%; left: 60%; width: 100px; height: 75px; background: url("/images/common/namecard/obj04_1.png") no-repeat; }
+.hexa5 { top: 70%; left: 25%; width: 90px; height: 90px; background: url("/images/common/namecard/obj05_1.png") no-repeat; }
+.hexa6 { bottom: 0; left: 35%; width: 97px; height: 67px; background: url("/images/common/namecard/obj06_1.png") no-repeat; }
+.hexa7 { bottom: 5%; left: 5%; width: 129px; height: 77px; background: url("/images/common/namecard/obj07_1.png") no-repeat; }
+.hexa8 { bottom: 30%; left: 18%; width: 56px; height: 56px; background: url("/images/common/namecard/obj08_1.png") no-repeat; }
+.hexa9 { top: 30%; right: 40%; width: 50px; height: 56px; background: url("/images/common/namecard/obj09_1.png") no-repeat; }
+.hexa10 { top: 55%; right: 35%; width: 19px; height: 19px; background: url("/images/common/namecard/obj10_1.png") no-repeat; }
+.hexa11 { bottom: 45%; left: 40%; width: 53px; height: 46px; background: url("/images/common/namecard/obj11_1.png") no-repeat; }
+.hexa12 { bottom: 45%; left: 3%; width: 49px; height: 47px; background: url("/images/common/namecard/obj12_1.png") no-repeat; }
+.hexa13 { top: 5%; right: 20%; width: 97px; height: 89px; background: url("/images/common/namecard/obj13_1.png") no-repeat; }
+.hexa14 { top: 0; right: 5%; width: 79px; height: 77px; background: url("/images/common/namecard/obj14_1.png") no-repeat; }
+.hexa15 { top: 20%; right: 8%; width: 88px; height: 83px; background: url("/images/common/namecard/obj15_1.png") no-repeat; }
+.hexa16 { top: 45%; right: 0; width: 85px; height: 65px; background: url("/images/common/namecard/obj16_1.png") no-repeat; }
+.hexa17 { right: 3%; bottom: 5%; width: 150px; height: 264px; background: url("/images/common/namecard/obj17_1.png") no-repeat; }
+.hexa18 { top: 50%; left: 30%; width: 55px; height: 45px; background: url("/images/common/namecard/obj18_1.png") no-repeat; }
+
+@keyframes titleCursor {
+  0%, 100% { border-right: 1px solid #fff; }
+  50% { border-right-color: #000; }
+}
+
+@media (max-width: 1220px) {
+  .inner { padding-right: 4rem; padding-left: 4rem; }
+  .s1 .inner { padding: 20rem 0 10rem; }
+  .s1::before { background-position: top center; background-size: 90%; }
+  .cardScroller { padding: 4.5rem 4.5rem 2rem; }
+  .cardList { margin-left: -2.5rem; }
+  .cardList > li { margin-bottom: 2.5rem; padding-left: 2.5rem; }
+}
+
+@media (max-width: 1023px) {
+  .titleWrap::before,
+  .titleWrap::after { display: none; }
+  .contentBox h2 span { display: block; }
+  .preview { right: 0; }
+  .facebook { top: 1.5rem; width: 60px; height: 60px; background-image: url("/images/common/namecard/face_m.png"); transform: none; }
+  .hexa1, .hexa4, .hexa7, .hexa12, .hexa13, .hexa16 { display: none; }
+}
+
+@media (max-width: 768px) {
+  .previewInner { padding: 3rem 12rem; }
+  .previewBox { width: 100%; }
+  .hexa2 { left: -10%; }
+}
+
+@media (max-width: 640px) {
+  .s1::before { display: none; }
+  .s1 .inner { padding-top: 30rem; padding-bottom: 20rem; }
+  .titleWrap { font-size: 8.5rem; }
+  .contentBox h2 { font-size: 6.4rem; }
+  .step { font-size: 3.4rem; }
+  .nicknameInput input { font-size: 3.3rem; }
+  .colorButton { font-size: 2.9rem; background-size: 100% auto; }
+  .outlineColorButton { text-shadow: -1px 0 #f00, 0 1px #f00, 1px 0 #f00, 0 -1px #f00; }
+  .nameInfoPicture { width: 28.2rem; height: 17.9rem; background-size: 100% auto; }
+  .nameInfoLabel { font-size: 2.4rem; }
+  .nameInfo > p { font-size: 3rem; }
+  .nameInfo > p br { display: none; }
+  .cardScroller { padding: 4rem; }
+  .cardList { margin-left: -2.5rem; }
+  .cardList > li { width: 50%; margin-bottom: 2.5rem; padding-left: 2.5rem; }
+  .cardTitle { font-size: 2.3rem; }
+  .previewOpen,
+  .previewClose { width: 180px; font-size: 2.5rem; }
+  .previewInner { padding: 3rem 7rem; }
+  .previewBox { font-size: 2.7rem; }
+  .previewInner > p { font-size: 2.2rem; }
+  .facebook { right: 1.5rem; width: 40px; height: 40px; }
+  .palette { width: 100%; }
+  .paletteTitle { font-size: 2.8rem; }
+  .paletteGrid { margin-left: -6px; }
+  .paletteGrid li { padding-left: 6px; }
+  .paletteGrid button { width: 8px; height: 8px; }
+  .paletteGrid .checked::before { top: -1px; width: 10px; height: 7px; }
+  .particles > span { background-size: cover; }
+  .hexa2 { left: -11%; width: 212px; height: 97px; }
+  .hexa3 { top: 15%; left: 35%; width: 26px; height: 25px; }
+  .hexa5 { top: auto; right: 10%; bottom: 25%; left: auto; width: 46px; height: 46px; }
+  .hexa6 { bottom: 22%; left: 30%; width: 50px; height: 34px; }
+  .hexa8 { bottom: 33%; left: 5%; width: 60px; height: 60px; }
+  .hexa9 { top: 40%; right: 5%; width: 29px; height: 29px; }
+  .hexa10 { top: auto; right: 20%; bottom: 50%; width: 10px; height: 10px; }
+  .hexa14 { right: 0; width: 38px; height: 41px; }
+  .hexa17 { right: -6%; bottom: 30%; width: 100px; height: 175px; }
+  .hexa18 { top: 20%; right: 15%; left: auto; width: 7px; height: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titleWrap h1,
+  .particles > span { animation: none; }
+}

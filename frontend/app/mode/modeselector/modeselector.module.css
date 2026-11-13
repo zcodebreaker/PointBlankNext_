@@ -1,0 +1,739 @@
+.root {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background: #090001;
+  font-family: var(--font-chakra-petch), "Roboto Mono", Consolas, monospace;
+}
+
+.backgrounds,
+.background,
+.background::after,
+.scanEffect {
+  position: absolute;
+  inset: 0;
+}
+
+.backgrounds {
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background {
+  display: block;
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  animation: backgroundFade 24s linear infinite both;
+}
+
+.background::after {
+  display: block;
+  content: "";
+  background-position: center;
+  background-size: cover;
+  animation: glitchFlicker 8s linear infinite;
+}
+
+.backgroundOne { background-image: url("/images/modeselector/common/bg01.jpg"); }
+.backgroundOne::after { background-image: url("/images/modeselector/common/bg01_effect.png"); }
+.backgroundTwo { background-image: url("/images/modeselector/common/bg02.jpg"); animation-delay: 6s; }
+.backgroundTwo::after { background-image: url("/images/modeselector/common/bg02_effect.png"); }
+.backgroundThree { background-image: url("/images/modeselector/common/bg03.jpg"); animation-delay: 12s; }
+.backgroundThree::after { background-image: url("/images/modeselector/common/bg03_effect.png"); }
+.backgroundFour { background-image: url("/images/modeselector/common/bg04.jpg"); animation-delay: 18s; }
+.backgroundFour::after { background-image: url("/images/modeselector/common/bg04_effect.png"); }
+
+.scanEffect {
+  z-index: 1;
+  background: url("/images/modeselector/common/bg_img.png") center / cover no-repeat;
+  pointer-events: none;
+  animation: scanPulse 10s ease-in-out infinite alternate;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  padding: 32px 48px 0;
+  text-align: left;
+}
+
+.header a {
+  display: inline-block;
+}
+
+.header img {
+  display: block;
+  width: 160px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  padding: 62px 24px 0;
+}
+
+.title {
+  width: min(974px, calc(100vw - 48px));
+  margin: 0 auto;
+  font-size: 0;
+  text-align: center;
+}
+
+.title img {
+  width: 100%;
+  height: auto;
+}
+
+.selector {
+  position: relative;
+  width: 100%;
+  max-width: 1224px;
+  min-height: 660px;
+  margin: 120px auto 0;
+}
+
+.wheelArea {
+  position: relative;
+  z-index: 3;
+  width: 660px;
+  height: 660px;
+  margin: 0 auto;
+}
+
+.wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #f00;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 75%);
+  box-shadow: 0 0 16px #f00, inset 0 0 48px rgb(255 0 0 / 28%);
+}
+
+.wheel::before {
+  position: absolute;
+  inset: -22px;
+  z-index: 0;
+  border: 2px solid #f00;
+  border-radius: 50%;
+  box-shadow: 0 0 52px rgb(255 0 0 / 38%), inset 0 0 52px rgb(255 0 0 / 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.wheelSpin {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(.12, .79, .08, 1);
+}
+
+.segment {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 31.5152%;
+  height: 50%;
+  transform-origin: 50% 100%;
+}
+
+.segment img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  position: absolute;
+  top: -88px;
+  left: 50%;
+  z-index: 6;
+  width: 74px;
+  height: 36px;
+  margin-left: -37px;
+}
+
+.arrow::before {
+  position: absolute;
+  inset: 0;
+  background: url("/images/modeselector/common/btn_arrow_effect.png") center / 100% no-repeat;
+  content: "";
+  animation: glitchFlicker 5s linear infinite;
+}
+
+.arrow img {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.startFrame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  width: 140px;
+  height: 140px;
+  border: 2px solid #f00;
+  border-radius: 50%;
+  background: #000;
+  transform: translate(-50%, -50%);
+}
+
+.startButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: url("/images/modeselector/common/btn_start.png") 0 0 / 100% auto no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font: 500 21px/96px var(--font-chakra-petch), "Roboto Mono", monospace;
+  letter-spacing: -.02em;
+  text-align: center;
+  text-shadow: -1px 0 1px #0fd, 1px 0 1px #f00;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+}
+
+.startButton::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: url("/images/modeselector/common/btn_start_line.png") center / 100% no-repeat;
+  content: "";
+  transform: translate(-50%, -50%);
+  animation: aim 5s linear infinite;
+}
+
+.startButton:hover:not(:disabled) {
+  background-position: 0 bottom;
+  color: #000;
+  font-weight: 700;
+  text-shadow: -1px 0 1px #3bf, 1px 0 1px #f8f;
+}
+
+.startButton:focus-visible,
+.resetButton:focus-visible,
+.closeButton:focus-visible {
+  outline: 3px solid #0ff;
+  outline-offset: 4px;
+}
+
+.startButton:disabled {
+  cursor: wait;
+  opacity: .85;
+}
+
+.modeList {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.modeList li {
+  position: absolute;
+  top: calc(var(--mode-row) * 120px);
+  width: 192px;
+  height: 96px;
+  background-position: 0 bottom;
+  background-repeat: no-repeat;
+  background-size: 192px 192px;
+  pointer-events: auto;
+}
+
+.modeList input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.modeList label {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: #ff0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: -1px 0 1px #46f, 1px 0 1px #f00;
+  text-transform: capitalize;
+}
+
+.modeList label span {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  width: max-content;
+  max-width: 184px;
+  padding: 0 4px;
+  border-right: 4px solid #0ff;
+  border-left: 4px solid #f0f;
+  background: rgb(0 0 0 / 65%);
+  line-height: 18px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.modeList input:focus-visible + label {
+  outline: 3px solid #0ff;
+  outline-offset: 3px;
+}
+
+.modeList input:disabled + label {
+  cursor: wait;
+}
+
+.modeList .enabled {
+  background-position: 0 bottom;
+}
+
+.modeList .disabled {
+  background-position: 0 top;
+}
+
+.modeList .disabled label {
+  color: #0ff;
+  font-size: 17px;
+  text-shadow: -1px 0 1px #55f, 1px 0 1px #b3f;
+}
+
+.modeList .disabled label span {
+  top: calc(50% + 7px);
+  bottom: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform: translate(-50%, -50%);
+}
+
+.notice {
+  position: absolute;
+  right: 220px;
+  bottom: -52px;
+  left: 220px;
+  min-height: 20px;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 8px #f00;
+}
+
+.resetButton {
+  position: relative;
+  z-index: 4;
+  display: block;
+  width: 176px;
+  height: 56px;
+  margin: 80px auto 0;
+  padding: 0;
+  border: 0;
+  background: url("/images/modeselector/common/btn_reset.png") 0 0 / 100% auto no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font: 600 21px/56px var(--font-chakra-petch), "Roboto Mono", monospace;
+  text-shadow: -1px 0 1px #f08, 1px 0 1px #0df;
+  text-transform: uppercase;
+}
+
+.resetButton::before {
+  position: absolute;
+  top: 6px;
+  left: -50px;
+  width: 276px;
+  height: 68px;
+  background: url("/images/modeselector/common/btn_glitch_off.png") 0 0 no-repeat;
+  content: "";
+  pointer-events: none;
+}
+
+.resetButton span {
+  position: relative;
+  z-index: 1;
+}
+
+.resetButton:hover:not(:disabled) {
+  background-position: 0 bottom;
+  color: #000;
+}
+
+.resetButton:hover:not(:disabled)::before {
+  top: -4px;
+  width: 214px;
+  background-image: url("/images/modeselector/common/btn_glitch_on.png");
+}
+
+.resetButton:disabled {
+  cursor: wait;
+  opacity: .6;
+}
+
+.footer {
+  position: relative;
+  z-index: 3;
+  padding: 40px 24px 100px;
+  color: #e5e5e5;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: rgb(0 0 0 / 82%);
+  cursor: pointer;
+}
+
+.resultPanel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  padding: 30px;
+  border: 2px solid #f00;
+  border-radius: 50%;
+  background: rgb(255 0 0 / 16%);
+  box-shadow: inset 0 0 50px rgb(255 0 0 / 60%), 0 0 50px rgb(255 0 0 / 35%);
+  transform: translate(-50%, -50%);
+  animation: resultAppear .8s ease-out both;
+}
+
+.resultPanel::before,
+.resultPanel::after {
+  position: absolute;
+  inset: 30px;
+  border: 2px solid #f00;
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.resultPanel::before {
+  background: url("/images/modeselector/common/bg_pop.jpg") center / cover no-repeat;
+}
+
+.resultPanel::after {
+  z-index: 2;
+  border: 0;
+  background: var(--glitch-image) center / cover no-repeat;
+  animation: glitchFlicker 5s linear infinite;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: url("/images/modeselector/common/btn_pop_close.png") 0 0 / 48px 96px no-repeat;
+  color: transparent;
+  cursor: pointer;
+  font-size: 0;
+}
+
+.closeButton:hover {
+  background-position: 0 bottom;
+}
+
+.resultIcon {
+  position: relative;
+  z-index: 3;
+  width: 250px;
+  height: 250px;
+  margin: 97px auto 50px;
+}
+
+.resultIcon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.resultPanel h2 {
+  position: relative;
+  z-index: 3;
+  display: table;
+  min-width: 240px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 24px;
+  border: 2px solid #f00;
+  border-radius: 30px;
+  background: rgb(51 0 0 / 82%);
+  box-shadow: inset 0 0 6px rgb(255 0 0 / 50%), 0 0 20px rgb(255 0 0 / 35%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 56px;
+  letter-spacing: .04em;
+  text-align: center;
+  text-shadow: -1px 0 1px #f08, 1px 0 1px #0df;
+  text-transform: uppercase;
+}
+
+@keyframes backgroundFade {
+  0% { opacity: 0; transform: scale(1.08); }
+  2%, 23% { opacity: 1; }
+  25%, 100% { opacity: 0; transform: scale(1); }
+}
+
+@keyframes glitchFlicker {
+  0%, 8%, 10%, 40%, 42%, 60%, 63%, 78%, 80%, 100% { opacity: 1; }
+  9%, 41%, 61%, 79% { opacity: .28; }
+}
+
+@keyframes scanPulse {
+  from { opacity: .62; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes aim {
+  0%, 50%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  25%, 75% { transform: translate(-50%, -50%) rotate(160deg); }
+}
+
+@keyframes resultAppear {
+  from { opacity: 0; transform: translate(-50%, -50%) rotate(3deg) scale(.94); }
+  70% { opacity: 1; transform: translate(-50%, -50%) rotate(0) scale(1.01); }
+  to { opacity: 1; transform: translate(-50%, -50%) rotate(1deg) scale(1); }
+}
+
+@media (max-width: 1140px) {
+  .header {
+    padding: 32px 24px 0;
+    text-align: left;
+  }
+
+  .content {
+    padding-top: 130px;
+  }
+
+  .selector {
+    min-height: 0;
+    margin-top: 100px;
+  }
+
+  .modeList {
+    position: relative;
+    inset: auto;
+    display: grid;
+    max-width: 1032px;
+    margin: 72px auto 0;
+    grid-template-columns: repeat(5, 192px);
+    gap: 16px 18px;
+    justify-content: center;
+  }
+
+  .modeList li {
+    position: relative;
+    top: auto;
+    right: auto !important;
+    left: auto !important;
+  }
+
+  .notice {
+    position: static;
+    min-height: 20px;
+    margin-top: 28px;
+  }
+
+  .resetButton {
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .modeList {
+    grid-template-columns: repeat(2, 192px);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-top: 24px;
+  }
+
+  .header img {
+    width: 132px;
+    height: auto;
+  }
+
+  .content {
+    padding: 110px 16px 0;
+  }
+
+  .title {
+    width: calc(100vw - 32px);
+  }
+
+  .selector {
+    margin-top: 76px;
+  }
+
+  .wheelArea {
+    width: min(82vw, 660px);
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .wheel::before {
+    inset: -3.3%;
+  }
+
+  .arrow {
+    top: -13.3%;
+    transform: scale(.72);
+    transform-origin: center bottom;
+  }
+
+  .startFrame {
+    width: 21.2%;
+    height: 21.2%;
+  }
+
+  .startButton {
+    width: 14.55%;
+    height: 14.55%;
+    background-size: 100% auto;
+    font-size: clamp(10px, 2.8vw, 18px);
+    line-height: normal;
+  }
+
+  .startButton::before {
+    width: 125%;
+    height: 125%;
+  }
+
+  .modeList {
+    margin-top: 64px;
+    grid-template-columns: repeat(2, minmax(0, 192px));
+    gap: 12px;
+  }
+
+  .modeList li {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    background-size: 100% 200%;
+  }
+
+  .modeList label {
+    font-size: clamp(10px, 3vw, 15px);
+  }
+
+  .modeList .disabled label {
+    font-size: clamp(11px, 3.2vw, 17px);
+  }
+
+  .modeList label span {
+    max-width: 94%;
+    line-height: 1.2;
+  }
+
+  .footer {
+    padding-bottom: 50px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .resultPanel {
+    width: 84vw;
+    height: 84vw;
+    max-width: 600px;
+    max-height: 600px;
+    padding: 4.2vw;
+  }
+
+  .resultPanel::before,
+  .resultPanel::after {
+    inset: 4.2vw;
+  }
+
+  .closeButton {
+    width: 42px;
+    height: 42px;
+    background-size: 42px 84px;
+  }
+
+  .resultIcon {
+    width: 40%;
+    height: 40%;
+    margin: 16% auto 8%;
+  }
+
+  .resultPanel h2 {
+    min-width: 48%;
+    height: auto;
+    padding: 9px 18px;
+    font-size: clamp(13px, 3.4vw, 20px);
+    line-height: 1.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background,
+  .background::after,
+  .scanEffect,
+  .arrow::before,
+  .startButton::before,
+  .resultPanel,
+  .resultPanel::after {
+    animation: none;
+  }
+
+  .backgroundOne {
+    opacity: 1;
+  }
+
+  .wheelSpin {
+    transition-duration: 1ms !important;
+  }
+}
